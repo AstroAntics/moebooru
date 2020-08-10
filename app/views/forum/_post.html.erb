@@ -1,9 +1,10 @@
-# Set up the comment box and forum box.
+<%-# Set up the comment box and forum box.-%>
 <div class="comment avatar-container">
   <div class="author">
     <h6 class="author"><%= link_to h(post.author), :controller => "user", :action => "show", :id => post.creator_id %></h6>
+    <%-# Display the date, time, and Post ID.-%>
     <span class="date"><%= link_to timeago(post.created_at), :action => "show", :id => post.id %></span>
-    # Does the poster have an avatar? If so, display it. Otherwise, end here.
+    <%-# Does the poster have an avatar? Yes? Display it. No? Finish up. -%>
     <% if post.creator.has_avatar? then %>
       <div class="forum-avatar-container"> <%= avatar(post.creator, post.id) %> </div>
     <% end %>
